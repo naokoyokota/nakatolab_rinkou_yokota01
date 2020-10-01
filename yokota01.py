@@ -13,9 +13,12 @@ import pandas as pd
 #    return lines
 
 # change this function that uses pandas library
-#def count_lines(file_path):
+def count_lines(file_path):
 #    lines = read_file(file_path)
-#    return len(lines)
+    #countlines with pandas
+    df= pd.read_table(file_path, encoding='utf-8',header=None) #topic１
+
+    return len(df)
 
 # main関数を定義 (to increase readability)
 if __name__ == "__main__":
@@ -30,11 +33,7 @@ if __name__ == "__main__":
 
     print('file: %s' % filename)
     print('number: %d' % nlines)
-    #len = count_lines(filename)
-
-    #countlines with pandas
-    df= pd.read_table(filename, encoding='utf-8',header=None) #topic１
-    len = len(df) #topic1
+    len = count_lines(filename)
 
     print('length is {}'.format(len)) #topic1
 #    print(filename)
