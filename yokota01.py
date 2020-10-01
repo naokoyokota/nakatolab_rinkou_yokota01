@@ -3,13 +3,14 @@ import os
 import sys
 import argparse
 import pandas as pd
-def read_file(path):
-    lines = []
-    with open(path, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-        lines = [ln.strip(os.linesep) for ln in lines]
 
-    return lines
+#def read_file(path):
+#    lines = []
+#    with open(path, "r", encoding="utf-8") as f:
+#        lines = f.readlines()
+#        lines = [ln.strip(os.linesep) for ln in lines]
+
+#    return lines
 
 # change this function that uses pandas library
 #def count_lines(file_path):
@@ -26,13 +27,15 @@ if __name__ == "__main__":
 
     filename = args.file
     nlines = args.number
-    #countlines with pandas
-    df= pd.read_table(filename, encoding='utf-8',header=None) #topic１
-    A=len(df) #topic1
 
     print('file: %s' % filename)
     print('number: %d' % nlines)
     #len = count_lines(filename)
-    print('length is {}'.format(A)) #topic1
-    print(filename)
-    print(nlines)
+
+    #countlines with pandas
+    df= pd.read_table(filename, encoding='utf-8',header=None) #topic１
+    len = len(df) #topic1
+
+    print('length is {}'.format(len)) #topic1
+#    print(filename)
+#    print(nlines)
