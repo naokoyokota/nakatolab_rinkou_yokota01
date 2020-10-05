@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     filename = args.file
     #nlines = args.number
-    #countlines with pandas
+    #print count of the first column removed duplicates with pandas
     df= pd.read_table(filename, encoding='utf-8',header=None) #topic5
     for index, value in df[0].value_counts().iteritems(): #topic5
         print(index, ': ', value) #topic5
