@@ -10,9 +10,11 @@ def read_file(path):
 
     return lines
 
-# change this function that uses pandas library
-#def count_lines(file_path):
+def read_file(file_path):
 #    lines = read_file(file_path)
+    #countlines with pandas
+    df= pd.read_table(file_path, encoding='utf-8',header=None,names=["city", "town"])
+    return df
 #    return len(lines)
 
 # main関数を定義 (to increase readability)
@@ -26,14 +28,11 @@ if __name__ == "__main__":
     filename = args.file
     #nlines = args.number
     #countlines with pandas
-    df= pd.read_table(filename, encoding='utf-8',header=None) #topic１
-    #A=len(df) #topic1
+    df = read_file(filename)
+
     #df.to_csv('address_space.txt', encoding='utf-8',sep=' ') #topic２
     print('file: %s' % filename)
     #１列目だけ抽出する
-    df=df[0]
+    df=df["town"]
     df.drop_duplicates( keep='last', inplace=True)
-    A=len(df)
-    print(A)
-
     df.to_csv('address_noduplicate.txt', encoding='utf-8',sep='\t')
