@@ -9,11 +9,11 @@ def read_file(path):
         lines = [ln.strip(os.linesep) for ln in lines]
 
     return lines
-
-# change this function that uses pandas library
-#def count_lines(file_path):
+def read_file(file_path):
 #    lines = read_file(file_path)
-#    return len(lines)
+    #countlines with pandas
+    df= pd.read_table(file_path, encoding='utf-8',header=None,names=["city", "town"])
+    return len(df)
 
 # main関数を定義 (to increase readability)
 if __name__ == "__main__":
@@ -27,13 +27,13 @@ if __name__ == "__main__":
     nlines = args.number
     #countlines with pandas
     df= pd.read_table(filename, encoding='utf-8',header=None)
-    A=len(df) #topic1
+    num=len(df) #topic1
 
     print('file: %s' % filename)
     print('number: %d' % nlines)
-    B=nlines+1 # topic3
+    num_lines=nlines # topic3
     #len = count_lines(filename)
     #print('length is {}'.format(A))
     print(filename)
     print(nlines)
-    print(df.head(B)) #topic3
+    print(df.head(num_lines)) #topic3
