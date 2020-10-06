@@ -10,10 +10,11 @@ def read_file(path):
 
     return lines
 
-# change this function that uses pandas library
-#def count_lines(file_path):
+def read_file(file_path):
 #    lines = read_file(file_path)
-#    return len(lines)
+    #countlines with pandas
+    df= pd.read_table(file_path, encoding='utf-8',header=None)
+    return df
 
 # main関数を定義 (to increase readability)
 if __name__ == "__main__":
@@ -27,8 +28,11 @@ if __name__ == "__main__":
     #nlines = args.number
     #countlines with pandas
     df= pd.read_table(filename, encoding='utf-8',header=None) #topic１
-    #A=len(df) #topic1
+    total=len(df)
+
     #df.to_csv('address_space.txt', encoding='utf-8',sep=' ') #topic２
     print('file: %s' % filename)
     for index, value in df[1].value_counts().iteritems(): #topic8
-        print(index, ': ', value) #topic8
+        freq_value=value/total
+        print(index, ': ', freq_value)
+    print(total)
