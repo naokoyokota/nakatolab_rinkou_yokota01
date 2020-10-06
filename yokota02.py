@@ -23,18 +23,18 @@ def read_file(file_path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="show partial lines of file")
     parser.add_argument("file", help="file path", type=str)
-    #parser.add_argument("number", help="number of lines", type=int)
 
     args = parser.parse_args()
 
     filename = args.file
-    #nlines = args.number
 
     print('file: %s' % filename)
     #print('number: %d' % nlines)
     df = read_file(filename)
-# save as a file with space
-    df.to_csv('address_space.txt', encoding='utf-8',sep=' ')
+    prefix = os.path.splitext(filename)[0]
+    output = '{}_space.txt'.format(prefix)
+ # save as a file with space
+    df.to_csv(output, encoding='utf-8',sep=' ')
 
 
 #    print('length is {}'.format(len)) #topic1
