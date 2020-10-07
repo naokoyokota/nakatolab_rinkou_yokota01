@@ -15,16 +15,16 @@ if __name__ == "__main__":
     nlines = args.number
 
     #read a file with pandas
-    df = pd.read_table(filename, encoding='utf-8',header=None)
+    df = pd.read_table(filename, encoding='utf-8', header=None)
 
     print('file: %s' % filename)
     print('number: %d' % nlines)
 
     print(filename)
     print(nlines)
+
     #extract n lines from head and save into a file
-    df=df.head(nlines)
+    df_nlines = df.head(nlines)
     prefix = os.path.splitext(filename)[0]
     output2 = '{}_nlines.txt'.format(prefix)
-    df.to_csv(output2, encoding='utf-8',columns=None, header=None, index=None,sep='\t')
-     #topic3
+    df_nlines.to_csv(output2, encoding='utf-8', columns=None, header=None, index=None, sep='\t')
