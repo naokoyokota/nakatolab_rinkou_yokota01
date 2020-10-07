@@ -23,8 +23,8 @@ if __name__ == "__main__":
     print(filename)
     print(nlines)
     #extract n lines from tail and save into a file
-    df=df.tail(nlines)
+    df_nlines = df.tail(nlines)
     prefix = os.path.splitext(filename)[0]
     output3 = '{}_nlines_tail.txt'.format(prefix)
-    df.to_csv(output3, encoding='utf-8',columns=None, header=None, index=None,sep="\t")
+    df_nlines.to_csv(output3, encoding='utf-8',columns=None, header=None, index=None,sep="\t")
      #topic3
