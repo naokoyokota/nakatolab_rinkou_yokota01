@@ -15,7 +15,7 @@ if __name__ == "__main__":
     nlines = args.number
 
     #read a file with pandas
-    df = pd.read_table(filename, encoding='utf-8',header=None)
+    df = pd.read_table(filename, encoding='utf-8', header=None)
 
     print('file: %s' % filename)
     print('number: %d' % nlines)
