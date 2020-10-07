@@ -35,4 +35,7 @@ if __name__ == "__main__":
     #１列目だけ抽出する
     df=df["town"]
     df.drop_duplicates( keep='last', inplace=True)
-    df.to_csv('address_noduplicate.txt', encoding='utf-8',sep='\t')
+    prefix = os.path.splitext(filename)[0]
+    output = '{}_col2.txt'.format(prefix)
+    df.to_csv(output, encoding='utf-8',sep='\t')
+    
